@@ -5,14 +5,17 @@ import './AddButtonList.scss';
 import iconPlus from '../../assets/img/plus.png';
 
 
-const AddButtonList = ()=>{
+
+const AddButtonList = ({ colors })=>{
     const [visiblePopup, setVisiblePopup] = useState(false);
 
 
     return(
         <div className="add-list">
-            <List items={[
-                {
+            <List 
+            onClick ={()=> setVisiblePopup(true)}
+            items={[
+                { 
                     className: "list__add-button",
                     icon: <img src={iconPlus} alt="add icon"/>,
                     name: "Добавить таску"
@@ -20,7 +23,14 @@ const AddButtonList = ()=>{
                 ]}
             />
             {visiblePopup && <div className="add-list__popup">
-                asd
+                <input className="field" type="text" placeholder="писать тут"/>
+                <div className="add-list__popup-colors">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <button className="button">Добавить</button>
             </div>}
         </div>
     )

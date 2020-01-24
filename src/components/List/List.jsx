@@ -5,9 +5,9 @@ import './List.scss';
 // import iconList from '../../assets/img/main.png';
 
 
-const List = ({ items, isRemovble })=>{
+const List = ({ items, isRemovble , onClick})=>{
     return(
-        <ul className="list">
+        <ul onClick={onClick} className="list">
           {
             items.map((item, index) =>(
             // <li key={index} className={item.active ? 'active' : ''}>

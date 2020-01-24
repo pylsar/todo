@@ -34,3 +34,30 @@ body {
   }
 }
 
+.field {
+  background: white;
+  // border:1px solid #efefef;
+  border: 1px solid red;
+  border-radius: 4px;
+  color: black;
+  padding: 8px 12px;
+  width: 100%;
+  &:focus {
+    border-color: blue;
+  }
+}
+
+.button{
+  background: #4DD599;
+  border-radius: 4px;
+  color: white;
+  border: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  &:hover{
+    background-color:darken($color: #4DD599, $amount: 10%);
+  }
+  &:active{
+    background-color:darken($color: #4DD599, $amount: 20%);
+  }
+}

@@ -4,8 +4,7 @@ import AddButtonList from './components/AddButtonList/AddButtonList';
 
 
 import iconList from './assets/img/main.png';
-
-
+import DB from './assets/db';
 
 
 function App() {
@@ -40,7 +39,7 @@ function App() {
         ]}
         isRemovble
         />
-        <AddButtonList />
+        <AddButtonList colors={DB.colors} />
       </div>  
       <div className="todo__tasks"></div>
     </div>
