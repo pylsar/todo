@@ -28,22 +28,5 @@
           height: 30px;
         }
       }
-      .badge{
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          &--green{
-              background-color: green;
-          }
-          &--lime{
-              background-color: lime;
-          }
-          &--orange{
-              background-color: orange;
-          }
-          &--blue{
-              background-color: blue;
-          }
-      }
     }
   }

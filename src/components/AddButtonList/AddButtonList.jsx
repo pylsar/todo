@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import List from '../List/List';
+import Badge from '../Badge/Badge';
 
 import './AddButtonList.scss';
 import iconPlus from '../../assets/img/plus.png';
@@ -25,10 +26,9 @@ const AddButtonList = ({ colors })=>{
             {visiblePopup && <div className="add-list__popup">
                 <input className="field" type="text" placeholder="писать тут"/>
                 <div className="add-list__popup-colors">
-                    <ul>
-                        <li></li>
-                        <li></li>
-                    </ul>
+                {colors.map(color =>(
+                <Badge  key={color.id} color={color.name}/>
+                ))}
                 </div>
                 <button className="button">Добавить</button>
             </div>}

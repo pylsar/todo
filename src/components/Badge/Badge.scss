@@ -1,0 +1,18 @@
+.badge{
+    display: flex;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    &--green{
+        background-color: green;
+    }
+    &--lime{
+        background-color: lime;
+    }
+    &--gray{
+        background-color: gray;
+    }
+    &--blue{
+        background-color: blue;
+    }
+}

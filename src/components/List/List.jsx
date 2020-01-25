@@ -1,8 +1,9 @@
 import React from 'react'; 
 import classNames from 'classnames';
+import Badge from '../Badge/Badge';
+
 
 import './List.scss';
-// import iconList from '../../assets/img/main.png';
 
 
 const List = ({ items, isRemovble , onClick})=>{
@@ -13,10 +14,14 @@ const List = ({ items, isRemovble , onClick})=>{
             // <li key={index} className={item.active ? 'active' : ''}>
             <li key={index} className={classNames(item.className, {'active': item.active})}>
             <i> 
-                {item.icon ? (item.icon) : (<i className={`badge badge--${item.color}`}></i>)} 
+                {
+                item.icon ? (item.icon) : (<Badge color={item.color}/>)
+                } 
             </i>
             <span>
-                {item.name}    
+                {
+                item.name
+                }    
             </span>
             </li>
             )

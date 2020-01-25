@@ -25,7 +25,7 @@ function App() {
             name: "Покупки"
           },
           {
-            color: "orange",
+            color: "grey",
             name: "Фронтенд"
           },
           {
