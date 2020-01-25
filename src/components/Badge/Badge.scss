@@ -4,15 +4,29 @@
     height: 10px;
     border-radius: 50%;
     &--green{
-        background-color: green;
+        background-color: #42B883;
     }
     &--lime{
-        background-color: lime;
+        background-color: #B6E6BD;
     }
-    &--gray{
-        background-color: gray;
+    &--grey{
+        background-color: #C9D1D3;
     }
     &--blue{
-        background-color: blue;
+        background-color: #64C4ED;
+    }
+    &--pink{
+        background-color: #FFBBCC;
+    }
+    &--black{
+        background-color: #110133;
+    }
+    &--purple{
+        background-color: #C355F5;
+    }
+    &--red{
+        background-color: #FF6464;
     }
 }
+
+

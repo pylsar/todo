@@ -9,7 +9,9 @@ import iconPlus from '../../assets/img/plus.png';
 
 const AddButtonList = ({ colors })=>{
     const [visiblePopup, setVisiblePopup] = useState(false);
+    const [selectedColor, selectColor] = useState(null);
 
+    // console.log(selectedColor);
 
     return(
         <div className="add-list">
@@ -27,7 +29,11 @@ const AddButtonList = ({ colors })=>{
                 <input className="field" type="text" placeholder="писать тут"/>
                 <div className="add-list__popup-colors">
                 {colors.map(color =>(
-                <Badge  key={color.id} color={color.name}/>
+                <Badge  onClick={()=> selectColor(color.id)}
+                 key={color.id} 
+                 color={color.name}
+                 className={selectColor === color.id && 'active'}
+                 />
                 ))}
                 </div>
                 <button className="button">Добавить</button>
