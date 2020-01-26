@@ -6,6 +6,7 @@
         border-radius: 10px;
         box-shadow: 0px 6px 10px rgba(0,0,0,0.05);
         padding: 18px;
+        position: relative;
 
         .button{
             width: 100%;
@@ -22,9 +23,17 @@
                 cursor: pointer;
 
                 &.active {
-                    border: 2px solid red;
+                    border: 2px solid green;
                 }
             }
+        }
+        &-closeBtn{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            cursor: pointer;
         }
     }
 }
