@@ -2,31 +2,34 @@
   margin-bottom: 30px;
   &__add-button{
     span{
-      font-size: 12px;
+      font-size: 10px;
       color: gray;
     }
     &:hover span{
       color: black;
     }
   }
-    li{
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      padding: 10px 12px;
-      margin-bottom: 5px;
-      &.active {
-      background: #ffffff;
-      border-radius: 4px;
-      box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
-      }
-      i{
-        display: inline-flex;
-        margin-right: 10px;
-        img{
-          width: 30px;
-          height: 30px;
-        }
+  li{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 6px 8px;
+    margin-bottom: 5px;
+    &:hover {
+      background-color: skyblue;
+    }
+    &.active {
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
+    }
+    i{
+      display: inline-flex;
+      margin-right: 10px;
+      img{
+        width: 30px;
+        height: 30px;
       }
     }
   }
+}

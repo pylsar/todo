@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import List from './components/List/List';
 import AddButtonList from './components/AddButtonList/AddButtonList';
 
@@ -8,6 +8,12 @@ import DB from './assets/db';
 
 
 function App() {
+
+  const [lists, setLists] = useState(DB.lists.map( item =>{
+    //вытаскиваем цвет для каждго id(чтобы связать таблицы в DB(id должен быть равен colorId))
+    item.color = DB.colors.filter(color => color.id === item.colorId)[0].name;
+    return item;
+  }))
 
   return (
     <div className="todo">
@@ -19,24 +25,7 @@ function App() {
             active: true
           }
         ]}/>
-        <List items={[
-          {
-            color: "lime",
-            name: "Покупки"
-          },
-          {
-            color: "grey",
-            name: "Фронтенд"
-          },
-          {
-            color: "blue",
-            name: "Уборка"
-          },
-          {
-            color: "green",
-            name: "Спорт"
-          },
-        ]}
+        <List items={lists}
         isRemovble
         />
         <AddButtonList colors={DB.colors} />
