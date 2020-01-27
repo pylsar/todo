@@ -8,13 +8,24 @@ import iconClose from '../../assets/img/close.png';
 
 
 
-const AddButtonList = ({ colors })=>{
+const AddButtonList = ({ colors, onAdd })=>{
     const [visiblePopup, setVisiblePopup] = useState(false);
     const [selectedColor, selectColor] = useState(colors[0].id);
+    const [inputValue, setInputValue] = useState('');
 
-    // console.log(selectedColor);
+    const addList = () =>{
+        if(!inputValue){
+            alert('введите значение');
+            return; // обрывает все что идет дальше
+        }
 
-    return(
+        onAdd({id: Math.random(), name: inputValue, color: colors.filter(c => c.id === selectedColor)[0].name})
+        setVisiblePopup(false)
+        setInputValue('')
+        selectColor(colors[0].id)
+    }
+
+    return( 
         <div className="add-list">
             <List 
             onClick ={()=> setVisiblePopup(true)}
@@ -27,17 +38,25 @@ const AddButtonList = ({ colors })=>{
                 ]}
             />
             {visiblePopup && <div className="add-list__popup">
-                <input className="field" type="text" placeholder="писать тут"/>
+                <input 
+                    value={inputValue} 
+                    onChange={(e)=>{
+                        setInputValue(e.target.value); // получаем данные из инпута
+                    }}
+                    className="field" 
+                    type="text" 
+                    placeholder="писать тут"
+                />
                 <div className="add-list__popup-colors">
-                {colors.map(color =>(
-                <Badge  onClick={()=> selectColor(color.id)}
-                 key={color.id} 
-                 color={color.name}
-                 className={selectedColor === color.id && 'active'}
-                 />
-                ))}
+                    {colors.map(color =>(
+                    <Badge  onClick={()=> selectColor(color.id)}
+                    key={color.id} 
+                    color={color.name}
+                    className={selectedColor === color.id && 'active'}
+                    />
+                    ))}
                 </div>
-                <button className="button">Добавить</button>
+                <button onClick={addList} className="button">Добавить</button>
                 <img 
                 onClick={()=> setVisiblePopup(false)}
                 className="add-list__popup-closeBtn" src={iconClose} alt="close"
