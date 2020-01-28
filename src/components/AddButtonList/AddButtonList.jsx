@@ -13,6 +13,12 @@ const AddButtonList = ({ colors, onAdd })=>{
     const [selectedColor, selectColor] = useState(colors[0].id);
     const [inputValue, setInputValue] = useState('');
 
+    const onClose = () =>{
+        setVisiblePopup(false);
+        setInputValue('');
+        selectColor(colors[0].id);
+    } 
+
     const addList = () =>{
         if(!inputValue){
             alert('введите значение');
@@ -20,9 +26,7 @@ const AddButtonList = ({ colors, onAdd })=>{
         }
 
         onAdd({id: Math.random(), name: inputValue, color: colors.filter(c => c.id === selectedColor)[0].name})
-        setVisiblePopup(false)
-        setInputValue('')
-        selectColor(colors[0].id)
+        onClose();
     }
 
     return( 
@@ -58,8 +62,10 @@ const AddButtonList = ({ colors, onAdd })=>{
                 </div>
                 <button onClick={addList} className="button">Добавить</button>
                 <img 
-                onClick={()=> setVisiblePopup(false)}
-                className="add-list__popup-closeBtn" src={iconClose} alt="close"
+                onClick={onClose}
+                className="add-list__popup-closeBtn" 
+                src={iconClose} alt="close"
+
                 />
             </div>}
         </div>
