@@ -33,7 +33,11 @@ function App() {
           }
         ]}/>
         <List items={lists}
-        isRemovble
+          isRemovble
+          onRemove = {(item) =>{
+             alert(1);
+            console.log(item);
+          }}
         />
         <AddButtonList onAdd={onAddList} colors={DB.colors} />
       </div>  

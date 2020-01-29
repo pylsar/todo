@@ -4,9 +4,17 @@ import Badge from '../Badge/Badge';
 
 
 import './List.scss';
+import iconClose from '../../assets/img/close.png';
 
 
-const List = ({ items, isRemovble , onClick})=>{
+const List = ({ items, isRemovble , onClick, onRemove })=>{
+
+    const RemoveList = (item)=>{
+        if(window.confirm('Вы действительно хотите удалить список?')){
+            onRemove(item)
+        }
+    }
+
     return(
         <ul onClick={onClick} className="list">
           {
@@ -14,15 +22,17 @@ const List = ({ items, isRemovble , onClick})=>{
             // <li key={index} className={item.active ? 'active' : ''}>
             <li key={index} className={classNames(item.className, {'active': item.active})}>
             <i> 
-                {
-                item.icon ? (item.icon) : (<Badge color={item.color}/>)
-                } 
+                {item.icon ? (item.icon) : (<Badge color={item.color}/>)} 
             </i>
             <span>
-                {
-                item.name
-                }    
+                { item.name}    
             </span>
+                { isRemovble && 
+                <img className="list__img" 
+                src={iconClose} 
+                alt="close"
+                onClick={()=>{RemoveList(item)}}
+                />}
             </li>
             )
             )}

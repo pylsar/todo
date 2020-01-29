@@ -15,8 +15,17 @@
     cursor: pointer;
     padding: 6px 8px;
     margin-bottom: 5px;
+    span{
+      flex: 1;
+    }
     &:hover {
       background-color: skyblue;
+    }
+    &:hover .list__img{
+      opacity: 0.3;
+      &:hover{
+        opacity: 0.8;
+      }
     }
     &.active {
     background: #ffffff;
@@ -31,5 +40,10 @@
         height: 30px;
       }
     }
+  }
+  &__img{
+    width: 12px;
+    height: 12px;
+    opacity: 0;
   }
 }

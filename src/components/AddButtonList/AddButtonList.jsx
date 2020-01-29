@@ -62,10 +62,9 @@ const AddButtonList = ({ colors, onAdd })=>{
                 </div>
                 <button onClick={addList} className="button">Добавить</button>
                 <img 
-                onClick={onClose}
-                className="add-list__popup-closeBtn" 
-                src={iconClose} alt="close"
-
+                   onClick={onClose}
+                   className="add-list__popup-closeBtn" 
+                   src={iconClose} alt="close"
                 />
             </div>}
         </div>
