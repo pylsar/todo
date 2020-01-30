@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import List from './components/List/List';
 import AddButtonList from './components/AddButtonList/AddButtonList';
+import Tasks from './components/Tasks/Tasks';
 
 
 import iconList from './assets/img/main.png';
@@ -41,7 +42,9 @@ function App() {
         />
         <AddButtonList onAdd={onAddList} colors={DB.colors} />
       </div>  
-      <div className="todo__tasks"></div>
+      <div className="todo__tasks">
+        <Tasks />
+      </div>
     </div>
   );
 }

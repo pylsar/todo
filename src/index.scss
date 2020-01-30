@@ -15,6 +15,7 @@ body {
 }
 
 .todo{
+  display: flex;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -31,6 +32,10 @@ body {
     border-right: 1px solid #f1f1f1;
     box-shadow: 1px 2px 11px #000;
     padding: 50px 20px;
+  }
+  &__tasks{
+    flex: 1;
+    padding: 60px;
   }
 }
 
@@ -61,3 +66,4 @@ body {
     background-color:darken($color: #4DD599, $amount: 20%);
   }
 }
+
