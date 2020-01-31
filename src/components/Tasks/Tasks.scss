@@ -1,5 +1,17 @@
 
 .tasks{
+    &__items{
+        margin-top: 30px;
+        &--row{
+            display: flex;
+            align-items: center;
+            input {
+                margin-left: 15px;
+                border: 0;
+                font-size: 16px;
+            }
+        }
+    }
     &__title{
         display: flex;
         align-items: center;
@@ -19,7 +31,7 @@
             cursor: pointer;
             margin-left: 15px;
             &:hover{
-                opacity: 0.8;
+                opacity: 1;
             }
         }
     }
@@ -39,7 +51,6 @@
             &:hover .checkbox__icon{
                 opacity: 0.5;
             }
-
         }
         input:checked + label { /*сосед справа выбранного чекбокса*/
             background-color: #4DD599;
@@ -50,6 +61,13 @@
             opacity: 0;
             width: 8px;
             height: 8px;
+        }
+        &:hover {
+            label{
+                img{
+                    opacity: 1;
+                }
+            }
         }
     }
 }

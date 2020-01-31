@@ -13,11 +13,14 @@ const Tasks = ()=> {
             <img src={iconPencil} alt="edit"/>
         </h2>
         <div className="tasks__items">
-            <div className="checkbox">
-                <input id="check" type="checkbox"/>
-                <label htmlFor="check">
-                    <img className="checkbox__icon" src={iconCheck} alt="check icon"/>
-                </label>
+            <div className="tasks__items--row">
+                <div className="checkbox">
+                    <input id="check" type="checkbox"/>
+                    <label htmlFor="check">
+                        <img className="checkbox__icon" src={iconCheck} alt="check icon"/>
+                    </label>
+                </div>
+                <input value="learn react" />
             </div>
         </div>
 
