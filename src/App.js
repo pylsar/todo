@@ -5,7 +5,7 @@ import Tasks from './components/Tasks/Tasks';
 
 
 import iconList from './assets/img/main.png';
-import DB from './assets/db';
+// import DB from './assets/db';
 
 
 function App() {
