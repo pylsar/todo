@@ -21,7 +21,7 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 750px;
-  height: 530px;
+  min-height: 530px;
   box-shadow: 1px 2px 11px #000;
   border-radius: 10px;
   border: 1px solid #f1f1f1;

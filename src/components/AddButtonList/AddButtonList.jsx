@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import List from '../List/List';
 import Badge from '../Badge/Badge';
 
@@ -10,8 +12,15 @@ import iconClose from '../../assets/img/close.png';
 
 const AddButtonList = ({ colors, onAdd })=>{
     const [visiblePopup, setVisiblePopup] = useState(false);
-    const [selectedColor, selectColor] = useState(colors[0].id);
+    const [selectedColor, selectColor] = useState(3);
+    const [isLoading, setIsLoading] = useState(false);
     const [inputValue, setInputValue] = useState('');
+
+    useEffect(() => {
+        if(Array.isArray(colors)){
+            selectColor(colors[0].id);
+        }
+    },[colors]);
 
     const onClose = () =>{
         setVisiblePopup(false);
@@ -25,8 +34,16 @@ const AddButtonList = ({ colors, onAdd })=>{
             return; // обрывает все что идет дальше
         }
 
-        onAdd({id: Math.random(), name: inputValue, color: colors.filter(c => c.id === selectedColor)[0].name})
+        setIsLoading(true); // перед тем как отправить запрос делаем загрузку
+        axios.post('http://localhost:3001/lists',{
+            name: inputValue, colorId: selectedColor}).then(({data}) => {
+                const color = colors.filter(c => c.id === selectedColor)[0].name
+                const listObj = {...data, color: {name: color}};
+        onAdd(listObj);
         onClose();
+        }).finally(() => {
+            setIsLoading(false); // после успешной загрузки убираем загрузку
+        })
     }
 
     return( 
@@ -60,7 +77,9 @@ const AddButtonList = ({ colors, onAdd })=>{
                     />
                     ))}
                 </div>
-                <button onClick={addList} className="button">Добавить</button>
+                <button onClick={addList} className="button">
+                    {isLoading ? 'Добавление...' : 'Добавить'}
+                </button>
                 <img 
                    onClick={onClose}
                    className="add-list__popup-closeBtn" 
