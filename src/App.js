@@ -19,6 +19,7 @@ function App() {
   // }))
   const [lists, setLists] = useState(null);
   const [colors, setColors] = useState(null);
+  const [activeItem, setActiveItem] = useState(null);
 
 
   useEffect(()=>{
@@ -54,6 +55,10 @@ function App() {
              const newList = lists.filter(item => item.id !== id); // отфильтрует весь массив и там где id не совпадает, уберет его из массива
             setLists(newList); // обновим состояние после удаления из бд
           }}
+          onClickItem = {item =>{
+            setActiveItem(item)
+          }}
+
         />
         ) : (
           'Загрузка...'

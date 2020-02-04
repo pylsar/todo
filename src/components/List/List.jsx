@@ -9,7 +9,7 @@ import './List.scss';
 import iconClose from '../../assets/img/close.png';
 
 
-const List = ({ items, isRemovble , onClick, onRemove })=>{
+const List = ({ items, isRemovble , onClick, onRemove, onClickItem })=>{
 
     const RemoveList = (item)=>{
         if(window.confirm('Вы действительно хотите удалить список?')){
@@ -24,19 +24,24 @@ const List = ({ items, isRemovble , onClick, onRemove })=>{
           {
             items.map((item, index) =>(
             // <li key={index} className={item.active ? 'active' : ''}>
-            <li key={index} className={classNames(item.className, {'active': item.active})}>
-            <i> 
-                {item.icon ? (item.icon) : (<Badge color={item.color.name}/>)} 
-            </i>
-            <span>
-                { item.name}    
-            </span>
-                { isRemovble && 
-                <img className="list__img" 
-                src={iconClose} 
-                alt="close"
-                onClick={()=>{RemoveList(item)}}
-                />}
+            <li 
+            key={index} 
+            className={classNames(item.className, {'active': item.active})}
+            onClick={onClickItem ? () => onClickItem(item) : null}
+            >
+                <i> 
+                    {item.icon ? (item.icon) : (<Badge color={item.color.name}/>)} 
+                </i>
+                <span>
+                    { item.name} 
+                    {item.tasks && `(${item.tasks.length})`}   
+                </span>
+                    { isRemovble && 
+                    <img className="list__img" 
+                    src={iconClose} 
+                    alt="close"
+                    onClick={()=>{RemoveList(item)}}
+                    />}
             </li>
             )
             )}
